@@ -1,0 +1,216 @@
+swagger: '2.0'
+info:
+  description: innervate-cares-dev-1 Online REST API for Testing and Prototyping application. You can perform all major operations with your entities - create, delete and etc.
+  version: 1.0.0
+  title: innervate-cares-dev-1
+
+basePath: /api/
+tags:
+  - name: Auth
+    description: Authorization operations
+
+  - name: users
+    description: users managing API
+
+paths:
+  /auth/signin/local:
+    post:
+      tags:
+        - Auth
+      summary: Logs user into the system
+      description: Logs user into the system
+      operationId: loginUser
+      produces:
+        - application/xml
+        - application/json
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Invalid username/password supplied
+      parameters:
+        - in: body
+          name: body
+          description: Logs user into the system
+          required: true
+          schema:
+            $ref: "#/definitions/Auth"
+  /auth/me:
+    get:
+      tags:
+        - Auth
+      summary: "Get current authorized user info"
+      description: Get current authorized user info
+      operationId: getUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successful retrieval of current authorized user data
+        '400':
+          description: Invalid username/password supplied
+      security:
+        - bearer: []
+  /auth/signup:
+    post:
+      tags:
+        - Auth
+      summary: Register new user into the system
+      description: 'Register new user into the system'
+      operationId: LogsUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: name
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Successful login
+        '400':
+          description: Invalid username/password supplied
+      security:
+        - api_key: [ ]
+
+  /users:
+    post:
+      tags:
+        - users
+      summary: "Add new item"
+      description: Add new item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Add new item
+          required: true
+          schema:
+            $ref: "#/definitions/users"
+      responses:
+        '200':
+          description: The item was successfully added
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    get:
+      tags:
+        - users
+      summary: "Get all item"
+      description: Add new item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The item was successfully added
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    put:
+      tags:
+        - users
+      summary: "Update the data of the selected item"
+      description: Update the data of the selected item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: "id"
+          in: path
+          description: "id that need to be updated"
+          required: true
+          type: "string"
+        - in: "body"
+          name: "body"
+          description: "Updated object"
+          required: true
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        '200':
+          description: The item was successfully updated
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    delete:
+      tags:
+        - users
+      summary: "Delete selected item"
+      description: Update the data of the selected item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: "id"
+          in: path
+          description: "id that need to be updated"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: "Successful operation"
+        '405':
+          description: users not found
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+
+definitions:
+  Auth:
+    type: object
+    properties:
+      email:
+        type: "string"
+        example: "admin@flatlogic.com"
+      password:
+        type: "string"
+        example: "password"
+    xml:
+      name: Auth
+
+  users:
+    type: object
+    properties:
+
+      firstName:
+        type: "true"
+
+      lastName:
+        type: "true"
+
+      phoneNumber:
+        type: "true"
+
+      email:
+        type: "true"
+
+    xml:
+      name: users
+
+securityDefinitions:
+  bearer:
+    type: apiKey
+    name: Authorization
+    description: Enter your bearer token in the format **Bearer &lt;token>**
+    in: header

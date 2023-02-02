@@ -1,0 +1,25 @@
+<app-breadcrumb [path]="routes.DASHBOARD"></app-breadcrumb>
+
+<div class="wrapper">
+  <a class="card-link" href="#/admin/users">
+    <mat-card matColumnDef="2" class="card">
+      <mat-card-title>
+        <h6>Users</h6>
+      </mat-card-title>
+      <mat-card-content>
+        <div class="count-wrapper">
+          <mat-icon
+            color="primary"
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="info"
+            >info</mat-icon
+          >
+          <h5>
+            Users: <span class="count">{{ users.count }}</span>
+          </h5>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </a>
+</div>

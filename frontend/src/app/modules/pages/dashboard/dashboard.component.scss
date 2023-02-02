@@ -1,0 +1,25 @@
+@import 'src/app/styles/colors';
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  width: 350px;
+  margin-top: 24px;
+  margin-right: 24px;
+  box-shadow: 0 3px 11px 0 $shadow-white, 0 3px 3px -2px $shadow-grey,
+    0 1px 8px 0 $shadow-dark-grey;
+}
+.count-wrapper {
+  display: flex;
+  .mat-icon {
+    margin-right: 0.3rem;
+  }
+}
+.card-link {
+  text-decoration: none;
+}
+.count {
+  font-size: 2rem;
+}
