@@ -28,7 +28,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [DashboardComponent, ChangePasswordComponent, ProfileComponent],
+  declarations: [
+    DashboardComponent,
+    ChangePasswordComponent,
+    ProfileComponent
+  ],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -54,6 +58,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatCheckboxModule,
     MatGridListModule,
     HttpClientModule,
-  ],
+  ]
 })
-export class PagesModule {}
+export class PagesModule {
+}

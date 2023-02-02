@@ -1,10 +1,8 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import {
-  OwlDateTimeModule,
-  OwlNativeDateTimeModule,
-} from '@danielmoncada/angular-datetime-picker';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from '@danielmoncada/angular-datetime-picker';
 import { CrudRoutingModule } from './crud-routing.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { SharedModule } from '../../shared/shared.module';
@@ -23,12 +21,18 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatRadioModule } from '@angular/material/radio';
 import { EditorModule } from '@tinymce/tinymce-angular';
 
-import { UsersCreateComponent } from './users-create/users-create.component';
-import { UsersEditComponent } from './users-edit/users-edit.component';
-import { UsersListComponent } from './users-list/users-list.component';
+  import { UsersCreateComponent } from './users-create/users-create.component';
+  import { UsersEditComponent } from './users-edit/users-edit.component';
+  import { UsersListComponent } from './users-list/users-list.component';
 
 @NgModule({
-  declarations: [UsersCreateComponent, UsersEditComponent, UsersListComponent],
+  declarations: [
+
+      UsersCreateComponent,
+      UsersEditComponent,
+      UsersListComponent,
+
+    ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -51,7 +55,8 @@ import { UsersListComponent } from './users-list/users-list.component';
     MatRadioModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
-    EditorModule,
-  ],
+    EditorModule
+    ]
 })
-export class CrudModule {}
+export class CrudModule { }
+

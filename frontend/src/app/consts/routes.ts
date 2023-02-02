@@ -9,4 +9,6 @@ export enum routes {
   Users = '/admin/users',
   Users_CREATE = '/admin/users/new',
   Users_EDIT = '/admin/users/edit',
+
 }
+

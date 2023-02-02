@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root'
 })
 export class DashboardService {
-  constructor(private httpClient: HttpClient) {}
+    constructor(private httpClient: HttpClient) { }
 
-  getUsers() {
-    return this.httpClient.get('/api/users/count');
-  }
+    getUsers(){
+        return this.httpClient.get('/api/users/count');
+    }
+
 }
